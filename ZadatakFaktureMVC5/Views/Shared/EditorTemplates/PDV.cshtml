@@ -1,0 +1,7 @@
+﻿@using ZadatakFaktureMVC5.Enums;
+@using ZadatakFaktureMVC5.Enums.Helpers
+@{
+    var items = typeof(PDV).GetItems();
+}
+
+@Html.DropDownList("", items)

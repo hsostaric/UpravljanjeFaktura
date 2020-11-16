@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ZadatakFaktureMVC5.ViewModels.FaktureView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "NovaFaktura", "Fakture")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spremljeno)
+        </th>
+        <th>Naredbe</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                Faktura_@Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @if (@item.Spremljeno == false)
+                {
+                    <span>DA</span>
+                }
+                else
+                {
+                    <span>NE</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Dodavanje stavki", "DodavanjeStavki", "Fakture", new { id = item.Id }, null) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
