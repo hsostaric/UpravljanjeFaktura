@@ -16,5 +16,7 @@ namespace ZadatakFaktureMVC5.Repositories
 
         void AzurirajZapis(FakturaStavkaView obj, FakturaStavkaViewDisplay noviZapis, Stavka stavka);
         void DodajCijenuFakturi(Faktura faktura, FakturaStavkaView fsv);
+
+        List<FakturaStavkaView> DohvatiStavkeFakture(Faktura racun);
     }
 }

@@ -77,6 +77,25 @@ namespace ZadatakFaktureMVC5.ViewModels
 
         }
 
+        public FakturaZaPregledView OblikujFakturuZaIspis(string userID, int racunID, IUserRepository userRepository,
+            IFaktureStavkeViewRepository faktureStavkeViewRepository, IFakturaRepository fakturaRepository)
+        {
+            FakturaZaPregledView faktura;
+            ApplicationUser prijavljeniKorisnik = userRepository.DohvatiPrijavljenogkorisnika(userID);
+            Faktura racun = fakturaRepository.GetById(racunID);
+            List<FakturaStavkaView> stavkeFakture = new List<FakturaStavkaView>(faktureStavkeViewRepository.DohvatiStavkeFakture(racun));
+            stavkeFakture = faktureStavkeViewRepository.DohvatiStavkeFakture(racun);
+            faktura = new FakturaZaPregledView(racun.Id, racun.DatumStvaranja, racun.DatumDospijeća,
+                racun.CijenaBezPDV, racun.CijenaPDV, prijavljeniKorisnik.UserName, racun.PrimateljRacuna);
+            foreach (var zapis in stavkeFakture)
+            {
+                faktura.StavkeRacuna.Add(new StavkaPrilagodjenoView(zapis.Stavka.Opis, zapis.Kolicina,
+                    zapis.Stavka.Cijena, zapis.KolicinskaCijena));
+            }
+            return faktura;
+
+        }
+
 
     }
 }

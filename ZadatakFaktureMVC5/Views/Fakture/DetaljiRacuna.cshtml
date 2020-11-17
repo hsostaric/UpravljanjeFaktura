@@ -1,0 +1,115 @@
+﻿@model ZadatakFaktureMVC5.ViewModels.FakturaZaPregledView
+
+@{
+    ViewBag.Title = "Detalji Racuna";
+}
+
+<h2>Detalji Racuna</h2>
+<br/>
+<br />
+<hr/>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojFakture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojFakture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumStvaranjaFaktura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumStvaranjaFaktura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumDospijecaFakture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumDospijecaFakture)
+        </dd>
+
+    </dl>
+    <hr/>
+    <br>
+    <table class="table">
+        <tr>
+            <th>
+                Opis prodane stavke
+            </th>
+            <th>
+                Kolicina prodane stavke
+            </th>
+            <th>
+                Jedinična cijena
+            </th>
+            <th>
+                Ukupna cijena stavke
+            </th>
+
+        </tr>
+        @foreach (var item in Model.StavkeRacuna)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpisProdaneStavke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KolicinaProdaneStavke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JedinicnaCijena) HRK
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UkupnaCijenaStavke) HRK
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CijenaBezPoreza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CijenaBezPoreza) HRK
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CijenaSaPorezom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CijenaSaPorezom) HRK
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NazivPrimatelja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazivPrimatelja)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index", "Fakture")
+</p>

@@ -117,6 +117,14 @@ namespace ZadatakFaktureMVC5.Repositories
             Save();
 
         }
+
+        public List<FakturaStavkaView> DohvatiStavkeFakture(Faktura racun)
+        {
+            return context.FakturaStavkaViews
+                .AsNoTracking()
+                .Where(x => x.FakturaID == racun.Id)
+                .ToList();
+        }
     }
 
 

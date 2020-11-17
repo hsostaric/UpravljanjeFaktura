@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ZadatakFaktureMVC5.ViewModels.StavkaPrilagodjenoView>
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OpisProdaneStavke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KolicinaProdaneStavke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JedinicnaCijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaStavke)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpisProdaneStavke)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KolicinaProdaneStavke)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JedinicnaCijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UkupnaCijenaStavke)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

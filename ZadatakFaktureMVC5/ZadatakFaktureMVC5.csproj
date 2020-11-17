@@ -252,9 +252,11 @@
     <Compile Include="Startup.cs" />
     <Compile Include="BL\UpravljanjeFakturama.cs" />
     <Compile Include="ViewModels\FakturaTemplateView.cs" />
+    <Compile Include="ViewModels\FakturaZaPregledView.cs" />
     <Compile Include="ViewModels\FaktureView.cs" />
     <Compile Include="ViewModels\FakturaStavkaViewDisplay.cs" />
     <Compile Include="ViewModels\StavkaPrilagođeno.cs" />
+    <Compile Include="ViewModels\StavkaPrilagođenoView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -316,6 +318,8 @@
     <Content Include="Views\Fakture\NovaFaktura.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\PDV.cshtml" />
     <Content Include="Views\Fakture\DodavanjeStavki.cshtml" />
+    <Content Include="Views\Fakture\DetaljiRacuna.cshtml" />
+    <Content Include="Views\Fakture\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

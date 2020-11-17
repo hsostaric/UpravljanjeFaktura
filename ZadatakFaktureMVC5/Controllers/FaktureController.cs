@@ -62,7 +62,6 @@ namespace ZadatakFaktureMVC5.Controllers
         public ActionResult DodavanjeStavki(int id)
         {
 
-
             if (id == 0 || id.Equals(null))
             {
                 return RedirectToAction("Index", "Fakture");
@@ -92,8 +91,14 @@ namespace ZadatakFaktureMVC5.Controllers
         [HttpGet]
         public ActionResult DetaljiRacuna(int id)
         {
-            ///dohvatiRacunPoId-u
-            return View();
+            if (id == 0 || id.Equals(null))
+            {
+                return RedirectToAction("Index", "Fakture");
+            }
+
+            FakturaZaPregledView model = UpravljanjeFakturama.Instance.OblikujFakturuZaIspis(User.Identity.GetUserId(), id, userRepository,
+                faktureStavkeViewRepository, fakturaRepository);
+            return View(model);
 
         }
 
